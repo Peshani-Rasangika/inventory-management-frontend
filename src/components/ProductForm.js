@@ -1,18 +1,33 @@
-import { useState } from "react";
-import { createProduct } from "../api";
+import { useState, useEffect } from "react";
 
-export default function ProductForm({ onProductCreated }) {
-  const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [price, setPrice] = useState("");
+export default function ProductForm({ initialData = null, onProductCreated }) {
+  const [name, setName] = useState(initialData?.name ?? "");
+  const [quantity, setQuantity] = useState(initialData?.quantity ?? "");
+  const [price, setPrice] = useState(initialData?.price ?? "");
+
+  useEffect(() => {
+    if (initialData) {
+      setName(initialData.name ?? "");
+      setQuantity(initialData.quantity ?? "");
+      setPrice(initialData.price ?? "");
+    }
+  }, [initialData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createProduct({ name, quantity, price });
-    onProductCreated();
-    setName("");
-    setQuantity("");
-    setPrice("");
+    try {
+      await onProductCreated({
+        name,
+        quantity: Number(quantity),
+        price: Number(price),
+      });
+      setName("");
+      setQuantity("");
+      setPrice("");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to save product");
+    }
   };
 
   return (
@@ -38,7 +53,7 @@ export default function ProductForm({ onProductCreated }) {
         onChange={(e) => setPrice(e.target.value)}
         required
       />
-      <button type="submit">Add Product</button>
+      <button type="submit">Save</button>
     </form>
   );
 }
