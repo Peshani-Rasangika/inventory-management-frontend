@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://inventory-backend-api-gqdxhzdwejf8axe4.southeastasia-01.azurewebsites.net/api";
 
 export const getProducts = () => axios.get(`${API_URL}/products`);
 export const createProduct = (product) =>
