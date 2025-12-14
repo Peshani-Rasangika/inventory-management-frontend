@@ -27,8 +27,13 @@ export default function ProductListPage() {
   );
 
   const fetchProducts = async () => {
-    const res = await getProducts();
-    setProducts(res.data);
+    try {
+      const res = await getProducts();
+      setProducts(res.data);
+    } catch (err) {
+      console.error("Failed to load products", err);
+      alert("Failed to load products. Please check that the API is running.");
+    }
   };
 
   useEffect(() => {
