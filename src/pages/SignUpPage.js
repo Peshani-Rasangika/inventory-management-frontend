@@ -35,51 +35,67 @@ export default function SignUpPage() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label>First Name</label>
-        <input
-          name="firstName"
-          type="text"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-        <label>Last Name</label>
-        <input
-          name="lastName"
-          type="text"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={handleChange}
-        />
-        <label>Email</label>
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <label>Confirm Password</label>
-        <input
-          name="confirmPassword"
-          type="password"
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+    <div>
+      <div>
+        <h1>Sign Up</h1>
+      </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>First Name</label>
+            <input
+              name="firstName"
+              type="text"
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Last Name</label>
+            <input
+              name="lastName"
+              type="text"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Email</label>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Password</label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Confirm Password</label>
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
