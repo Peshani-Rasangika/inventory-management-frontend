@@ -8,6 +8,7 @@ import {
 import ProductListPage from "./pages/ProductListPage";
 import AddProductPage from "./pages/AddProductPage";
 import EditProductPage from "./pages/EditProductPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function NavItem({ to, icon, label }) {
   const location = useLocation();
@@ -117,7 +118,8 @@ function App() {
           <main className="flex-1 overflow-y-auto p-4 md:p-8">
             <div className="mx-auto max-w-5xl">
               <Routes>
-                <Route path="/" element={<ProductListPage />} />
+                <Route path="/" element={<SignUpPage />} />
+                <Route path="/list" element={<ProductListPage />} />
                 <Route path="/add" element={<AddProductPage />} />
                 <Route path="/edit/:id" element={<EditProductPage />} />
               </Routes>
